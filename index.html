@@ -347,7 +347,7 @@
             --space-2xl: clamp(3rem, 2rem + 5vw, 6rem);
             --space-3xl: clamp(4rem, 3rem + 5vw, 8rem);
             --container-max: 1200px;
-            --header-height: 110px;
+            --header-height: 120px;
             --transition-fast: 150ms ease;
             --transition-base: 250ms ease;
             --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
@@ -375,7 +375,7 @@
         .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: transparent; transition: all 0.3s ease; }
         .header.is-scrolled { background: rgba(26, 18, 12, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
         .header__inner { display: flex; align-items: center; justify-content: space-between; height: var(--header-height); gap: var(--space-md); transition: height 0.3s ease; }
-        .header.is-scrolled .header__inner { height: 70px; }
+        .header.is-scrolled .header__inner { height: 80px; }
         .logo { display: flex; align-items: center; flex-shrink: 0; }
         .logo__img { height: clamp(40px, 8vw, 55px); width: auto; transition: height 0.3s ease; }
         .header.is-scrolled .logo__img { height: clamp(35px, 6vw, 40px); }
@@ -646,7 +646,7 @@
                             <li><a href="#about" class="nav__link">About</a></li>
                             <li><a href="#gallery" class="nav__link">Gallery</a></li>
                             <li><a href="#reviews" class="nav__link">Reviews</a></li>
-                            <li><a href="blog.html" class="nav__link">Blog</a></li>
+                            <li><a href="/blog" class="nav__link">Blog</a></li>
                         </ul>
                         <div class="nav__mobile-footer">
                             <a href="tel:+18654135899" class="nav__phone-mobile"><i class="fa-solid fa-phone" aria-hidden="true"></i>(865) 413-5899</a>
@@ -1057,7 +1057,7 @@
                         <li><a href="#about" class="footer__link">About Us</a></li>
                         <li><a href="#gallery" class="footer__link">Gallery</a></li>
                         <li><a href="#reviews" class="footer__link">Reviews</a></li>
-                        <li><a href="blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="/blog" class="footer__link">Blog</a></li>
                     </ul>
                 </div>
             </div>
