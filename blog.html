@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lawn care tips, landscaping ideas, and property maintenance advice from Hays Lawn and Property Services in Clinton, TN.">
+    <title>Blog | Hays Lawn and Property Services | Clinton, TN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --color-primary: #16a34a;
+            --color-primary-dark: #15803d;
+            --color-primary-darker: #166534;
+            --color-accent: #84cc16;
+            --color-white: #ffffff;
+            --color-neutral-50: #fafafa;
+            --color-neutral-100: #f5f5f5;
+            --color-neutral-200: #e5e5e5;
+            --color-neutral-300: #d4d4d4;
+            --color-neutral-400: #a3a3a3;
+            --color-neutral-500: #737373;
+            --color-neutral-600: #525252;
+            --color-neutral-700: #362a1f;
+            --color-neutral-800: #261b12;
+            --color-neutral-900: #1a120c;
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --text-sm: clamp(0.875rem, 0.8rem + 0.2vw, 0.9rem);
+            --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.0625rem);
+            --text-lg: clamp(1.125rem, 1rem + 0.4vw, 1.25rem);
+            --text-xl: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+            --text-2xl: clamp(1.5rem, 1.3rem + 0.7vw, 1.875rem);
+            --text-3xl: clamp(1.875rem, 1.5rem + 1.2vw, 2.5rem);
+            --text-4xl: clamp(2.25rem, 1.8rem + 1.5vw, 3rem);
+            --space-xs: 0.5rem;
+            --space-sm: 0.75rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 24px;
+            --radius-full: 9999px;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+            --transition-fast: 150ms ease;
+            --transition-base: 250ms ease;
+            --header-height: 80px;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); font-size: var(--text-base); line-height: 1.6; color: var(--color-neutral-600); background: var(--color-white); -webkit-font-smoothing: antialiased; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); }
+
+        /* Header */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26, 18, 12, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.3); height: var(--header-height); transition: all 0.3s ease; }
+        .header__inner { display: flex; align-items: center; justify-content: space-between; height: var(--header-height); gap: var(--space-md); }
+        .logo { display: flex; align-items: center; gap: var(--space-sm); }
+        .logo__icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: var(--color-primary); color: var(--color-white); font-size: 1.25rem; border-radius: var(--radius-lg); transition: all 0.3s ease; }
+        .logo__text { font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); color: var(--color-white); line-height: 1.2; }
+        .nav { display: flex; align-items: center; gap: var(--space-lg); }
+        .nav__toggle { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: transparent; border: none; color: var(--color-white); font-size: 1.25rem; cursor: pointer; }
+        .nav__toggle .fa-xmark { display: none; }
+        .nav__toggle[aria-expanded="true"] .fa-bars { display: none; }
+        .nav__toggle[aria-expanded="true"] .fa-xmark { display: block; }
+        .nav__menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--color-neutral-900); padding: var(--space-md); }
+        .nav__menu.is-open { display: block; animation: fadeIn 200ms ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .nav__list { display: flex; flex-direction: column; gap: var(--space-xs); list-style: none; }
+        .nav__link { display: block; padding: var(--space-sm) var(--space-md); font-family: var(--font-display); font-weight: 500; font-size: var(--text-base); color: var(--color-white); border-radius: var(--radius-md); transition: all var(--transition-fast); border: 1px solid transparent; }
+        .nav__link:hover, .nav__link:focus { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-color: rgba(255,255,255,0.15); color: var(--color-white); }
+        .nav__link[aria-current="page"] { color: var(--color-accent); }
+        .nav__phone { display: none; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); color: var(--color-white); font-family: var(--font-display); font-weight: 600; font-size: 1rem; letter-spacing: 0.03em; border-radius: var(--radius-full); transition: all var(--transition-fast); }
+        .nav__phone:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .nav__mobile-footer { display: flex; align-items: center; justify-content: center; gap: var(--space-md); margin-top: var(--space-lg); padding-top: var(--space-md); border-top: 1px solid var(--color-neutral-800); }
+        .nav__phone-mobile { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); color: var(--color-white); font-family: var(--font-display); font-weight: 600; font-size: var(--text-sm); letter-spacing: 0.02em; border-radius: var(--radius-full); }
+        .nav__mobile-divider { width: 1px; height: 32px; background: var(--color-neutral-700); }
+        .nav__mobile-socials { display: flex; align-items: center; gap: var(--space-sm); }
+        .nav__social-link { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--color-neutral-800); color: var(--color-neutral-400); border-radius: var(--radius-full); font-size: 1rem; transition: all var(--transition-fast); }
+        .nav__social-link:hover { background: var(--color-primary); color: var(--color-white); }
+        @media (min-width: 900px) {
+            .nav__toggle { display: none; }
+            .nav__menu { display: block; position: static; background: transparent; padding: 0; }
+            .nav__list { flex-direction: row; gap: var(--space-xs); }
+            .nav__phone { display: flex; }
+            .nav__phone-mobile { display: none; }
+            .nav__mobile-footer { display: none; }
+            .nav__item--mobile-only { display: none; }
+        }
+
+        /* Page Hero */
+        .page-hero { background: var(--color-neutral-900); padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-3xl); text-align: center; position: relative; overflow: hidden; }
+        .page-hero::before { content: ''; position: absolute; inset: 0; background: url('https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1500x1500/filters:strip_exif()/filters:no_upscale()/media/9e53a0d0-ca20-4bfd-8602-582ed676e457.jpeg') center/cover no-repeat; opacity: 0.2; }
+        .page-hero__content { position: relative; z-index: 1; }
+        .page-hero__eyebrow { display: inline-flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-full); font-family: var(--font-display); font-weight: 500; font-size: var(--text-sm); color: var(--color-white); margin-bottom: var(--space-lg); }
+        .page-hero__eyebrow i { color: var(--color-accent); }
+        .page-hero__title { font-family: var(--font-display); font-size: var(--text-4xl); font-weight: 800; color: var(--color-white); line-height: 1.1; margin-bottom: var(--space-md); }
+        .page-hero__description { font-size: var(--text-lg); color: var(--color-neutral-300); max-width: 600px; margin: 0 auto; }
+
+        /* Blog Grid */
+        .blog-section { padding: var(--space-3xl) 0; background: var(--color-neutral-50); }
+        .blog-grid { display: grid; gap: var(--space-xl); }
+        @media (min-width: 768px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .blog-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        /* Blog Card */
+        .blog-card { background: var(--color-white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--color-neutral-200); transition: all var(--transition-base); display: flex; flex-direction: column; }
+        .blog-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); }
+        .blog-card__image { position: relative; aspect-ratio: 16/10; overflow: hidden; }
+        .blog-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .blog-card:hover .blog-card__image img { transform: scale(1.05); }
+        .blog-card__category { position: absolute; top: var(--space-md); left: var(--space-md); padding: 0.4rem 0.8rem; background: var(--color-primary); color: var(--color-white); font-family: var(--font-display); font-weight: 600; font-size: var(--text-sm); border-radius: var(--radius-full); }
+        .blog-card__content { padding: var(--space-lg); display: flex; flex-direction: column; flex-grow: 1; }
+        .blog-card__meta { display: flex; align-items: center; gap: var(--space-md); font-size: var(--text-sm); color: var(--color-neutral-500); margin-bottom: var(--space-sm); }
+        .blog-card__meta i { color: var(--color-primary); }
+        .blog-card__title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700; color: var(--color-neutral-900); line-height: 1.3; margin-bottom: var(--space-sm); transition: color var(--transition-fast); }
+        .blog-card:hover .blog-card__title { color: var(--color-primary); }
+        .blog-card__excerpt { font-size: var(--text-sm); color: var(--color-neutral-600); line-height: 1.7; margin-bottom: var(--space-lg); flex-grow: 1; }
+        .blog-card__link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-weight: 600; font-size: var(--text-sm); color: var(--color-primary); transition: gap var(--transition-fast); }
+        .blog-card__link:hover { gap: 0.75rem; }
+
+        /* Featured Post */
+        .featured-post { margin-bottom: var(--space-2xl); }
+        .featured-card { display: grid; background: var(--color-white); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--color-neutral-200); transition: all var(--transition-base); }
+        @media (min-width: 768px) { .featured-card { grid-template-columns: 1.2fr 1fr; } }
+        .featured-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); }
+        .featured-card__image { position: relative; aspect-ratio: 16/10; overflow: hidden; }
+        @media (min-width: 768px) { .featured-card__image { aspect-ratio: auto; min-height: 100%; } }
+        .featured-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .featured-card:hover .featured-card__image img { transform: scale(1.05); }
+        .featured-card__badge { position: absolute; top: var(--space-lg); left: var(--space-lg); padding: 0.5rem 1rem; background: var(--color-accent); color: var(--color-neutral-900); font-family: var(--font-display); font-weight: 700; font-size: var(--text-sm); border-radius: var(--radius-full); }
+        .featured-card__content { padding: var(--space-xl); display: flex; flex-direction: column; justify-content: center; }
+        .featured-card__category { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.8rem; background: rgba(22, 163, 74, 0.1); color: var(--color-primary); font-family: var(--font-display); font-weight: 600; font-size: var(--text-sm); border-radius: var(--radius-full); margin-bottom: var(--space-md); width: fit-content; }
+        .featured-card__title { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 800; color: var(--color-neutral-900); line-height: 1.2; margin-bottom: var(--space-md); transition: color var(--transition-fast); }
+        .featured-card:hover .featured-card__title { color: var(--color-primary); }
+        .featured-card__excerpt { font-size: var(--text-base); color: var(--color-neutral-600); line-height: 1.7; margin-bottom: var(--space-lg); }
+        .featured-card__meta { display: flex; align-items: center; gap: var(--space-lg); font-size: var(--text-sm); color: var(--color-neutral-500); margin-bottom: var(--space-lg); }
+        .featured-card__meta span { display: flex; align-items: center; gap: 0.5rem; }
+        .featured-card__meta i { color: var(--color-primary); }
+        .featured-card__link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--color-primary); color: var(--color-white); font-family: var(--font-display); font-weight: 600; font-size: var(--text-base); border-radius: var(--radius-full); transition: all var(--transition-fast); width: fit-content; }
+        .featured-card__link:hover { background: var(--color-primary-dark); transform: translateY(-2px); }
+
+        /* Section Header */
+        .section-header { margin-bottom: var(--space-xl); }
+        .section-header__title { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 700; color: var(--color-neutral-900); }
+
+        /* Footer */
+        .footer { background: var(--color-neutral-900); color: var(--color-neutral-300); padding: var(--space-xl) 0 0; }
+        .footer__top { display: grid; gap: var(--space-xl); padding-bottom: var(--space-xl); border-bottom: 1px solid var(--color-neutral-800); }
+        @media (min-width: 768px) { .footer__top { grid-template-columns: 2fr 1.5fr 1fr 1fr; } }
+        .footer__logo { display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md); }
+        .footer__logo-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: var(--color-primary); color: var(--color-white); font-size: 1.25rem; border-radius: var(--radius-lg); }
+        .footer__logo-text { font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); color: var(--color-white); }
+        .footer__text { font-size: var(--text-sm); line-height: 1.7; margin-bottom: var(--space-lg); color: var(--color-neutral-400); }
+        .footer__social { display: flex; gap: var(--space-sm); }
+        .footer__social-link { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; background: var(--color-neutral-800); color: var(--color-neutral-400); border-radius: var(--radius-full); font-size: 1.1rem; transition: all var(--transition-fast); }
+        .footer__social-link:hover { background: var(--color-primary); color: var(--color-white); transform: translateY(-3px); }
+        .footer__title { font-family: var(--font-display); font-weight: 600; font-size: var(--text-sm); color: var(--color-white); margin-bottom: var(--space-md); text-transform: uppercase; letter-spacing: 0.08em; }
+        .footer__links { display: flex; flex-direction: column; gap: 0.6rem; list-style: none; }
+        .footer__link { font-size: var(--text-sm); color: var(--color-neutral-400); transition: all var(--transition-fast); display: inline-flex; align-items: center; gap: 0.5rem; }
+        .footer__link:hover { color: var(--color-white); padding-left: 4px; }
+        .footer__contact-item { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: var(--text-sm); color: var(--color-neutral-400); }
+        .footer__contact-item i { color: var(--color-primary); margin-top: 3px; width: 16px; }
+        .footer__contact-item a { color: var(--color-neutral-300); transition: color var(--transition-fast); }
+        .footer__contact-item a:hover { color: var(--color-white); }
+        .footer__bottom { display: flex; flex-direction: column; gap: var(--space-sm); padding: var(--space-lg) 0; text-align: center; font-size: var(--text-sm); color: var(--color-neutral-500); }
+        @media (min-width: 768px) { .footer__bottom { flex-direction: row; justify-content: space-between; } }
+
+        /* Scroll to Top */
+        .scroll-top { position: fixed; bottom: var(--space-lg); right: var(--space-lg); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: var(--color-neutral-900); color: var(--color-white); font-size: 1.125rem; border-radius: var(--radius-full); box-shadow: var(--shadow-lg); opacity: 0; visibility: hidden; transform: translateY(20px); transition: all var(--transition-base); z-index: 99; border: 2px solid transparent; background-image: linear-gradient(var(--color-neutral-900), var(--color-neutral-900)), linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); background-origin: border-box; background-clip: padding-box, border-box; cursor: pointer; }
+        .scroll-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        .scroll-top:hover { transform: translateY(-4px); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="logo">
+                    <img src="https://hayslawnandpropertyservices.com/wp-content/uploads/2024/12/hays-logo-inlne-e1767994557166.webp" alt="Hays Lawn and Property Services" class="logo__image" style="height: clamp(40px, 8vw, 55px); width: auto;">
+                </a>
+                <nav class="nav" aria-label="Main">
+                    <button id="navToggle" class="nav__toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation menu">
+                        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                    </button>
+                    <div id="navMenu" class="nav__menu">
+                        <ul class="nav__list">
+                            <li class="nav__item--mobile-only"><a href="index.html" class="nav__link">Home</a></li>
+                            <li><a href="index.html#services" class="nav__link">Services</a></li>
+                            <li><a href="index.html#about" class="nav__link">About</a></li>
+                            <li><a href="index.html#gallery" class="nav__link">Gallery</a></li>
+                            <li><a href="index.html#reviews" class="nav__link">Reviews</a></li>
+                            <li><a href="blog.html" class="nav__link" aria-current="page">Blog</a></li>
+                        </ul>
+                        <div class="nav__mobile-footer">
+                            <a href="tel:+18654135899" class="nav__phone-mobile"><i class="fa-solid fa-phone" aria-hidden="true"></i>(865) 413-5899</a>
+                            <span class="nav__mobile-divider" aria-hidden="true"></span>
+                            <div class="nav__mobile-socials">
+                                <a href="https://www.facebook.com/103517237676848" class="nav__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                                <a href="https://maps.google.com/maps?cid=5526754346328966445" class="nav__social-link" aria-label="Google Business"><i class="fa-brands fa-google" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="tel:+18654135899" class="nav__phone"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>(865) 413-5899</span></a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero__content">
+                    <span class="page-hero__eyebrow"><i class="fa-solid fa-blog" aria-hidden="true"></i> Our Blog</span>
+                    <h1 class="page-hero__title">Lawn Care Tips & Insights</h1>
+                    <p class="page-hero__description">Expert advice, seasonal tips, and landscaping inspiration to help you get the most out of your outdoor space.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-section">
+            <div class="container">
+                <!-- Featured Post -->
+                <div class="featured-post">
+                    <a href="blog-water-features.html" class="featured-card">
+                        <div class="featured-card__image">
+                            <img src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1000x1000/filters:strip_exif()/filters:no_upscale()/media/9e53a0d0-ca20-4bfd-8602-582ed676e457.jpeg" alt="Beautiful backyard water feature" loading="lazy">
+                            <span class="featured-card__badge"><i class="fa-solid fa-star" aria-hidden="true"></i> Featured</span>
+                        </div>
+                        <div class="featured-card__content">
+                            <span class="featured-card__category"><i class="fa-solid fa-droplet" aria-hidden="true"></i> Landscaping</span>
+                            <h2 class="featured-card__title">Creating Tranquil Retreats: Innovative Water Features for Your Landscape</h2>
+                            <p class="featured-card__excerpt">Transform your backyard into a serene oasis with the addition of innovative water features. From classic fountains to modern ponds, discover how to elevate your landscape.</p>
+                            <div class="featured-card__meta">
+                                <span><i class="fa-regular fa-calendar" aria-hidden="true"></i> Apr 29, 2025</span>
+                                <span><i class="fa-regular fa-clock" aria-hidden="true"></i> 5 min read</span>
+                            </div>
+                            <span class="featured-card__link">Read Article <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- All Posts -->
+                <div class="section-header">
+                    <h2 class="section-header__title">All Articles</h2>
+                </div>
+                <div class="blog-grid">
+                    <a href="blog-curb-appeal.html" class="blog-card">
+                        <div class="blog-card__image">
+                            <img src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1000x1000/filters:strip_exif()/filters:no_upscale()/media/43a551ee-80e1-4db7-8327-eb4779243bd5.jpeg" alt="Curb appeal landscaping" loading="lazy">
+                            <span class="blog-card__category">Tips</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span><i class="fa-regular fa-calendar" aria-hidden="true"></i> Apr 17, 2025</span>
+                            </div>
+                            <h3 class="blog-card__title">Maximize Your Curb Appeal: Expert Tips from the Pros</h3>
+                            <p class="blog-card__excerpt">Simple yet effective ways to enhance your property's first impression and boost its value.</p>
+                            <span class="blog-card__link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="blog-perfect-lawn.html" class="blog-card">
+                        <div class="blog-card__image">
+                            <img src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1000x1000/filters:strip_exif()/filters:no_upscale()/media/9c015f9a-a4b5-41b6-ba59-ab0d87cbac2e.jpeg" alt="Perfect green lawn" loading="lazy">
+                            <span class="blog-card__category">Lawn Care</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span><i class="fa-regular fa-calendar" aria-hidden="true"></i> Apr 15, 2025</span>
+                            </div>
+                            <h3 class="blog-card__title">Achieve the Perfect Lawn: Expert Tips for Year-Round Care</h3>
+                            <p class="blog-card__excerpt">Our comprehensive guide to maintaining a lush, healthy lawn throughout every season of the year.</p>
+                            <span class="blog-card__link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="blog-seasonal-landscaping.html" class="blog-card">
+                        <div class="blog-card__image">
+                            <img src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1000x1000/filters:strip_exif()/filters:no_upscale()/media/efadbcde-8724-4869-bbd6-46f93bf69baa.jpeg" alt="Seasonal landscaping" loading="lazy">
+                            <span class="blog-card__category">Seasonal</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span><i class="fa-regular fa-calendar" aria-hidden="true"></i> Apr 5, 2025</span>
+                            </div>
+                            <h3 class="blog-card__title">Seasonal Landscaping Solutions: Preparing Your Outdoor Space</h3>
+                            <p class="blog-card__excerpt">Learn how to adapt your landscaping approach as the seasons change for a beautiful yard year-round.</p>
+                            <span class="blog-card__link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="blog-hardscaping.html" class="blog-card">
+                        <div class="blog-card__image">
+                            <img src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1000x1000/filters:strip_exif()/filters:no_upscale()/media/27bf6741-9186-462f-b3e6-1a37e0b45a46.jpeg" alt="Custom hardscaping" loading="lazy">
+                            <span class="blog-card__category">Hardscaping</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span><i class="fa-regular fa-calendar" aria-hidden="true"></i> Apr 2, 2025</span>
+                            </div>
+                            <h3 class="blog-card__title">The Beauty of Custom Hardscaping: Elevate Your Curb Appeal</h3>
+                            <p class="blog-card__excerpt">Discover how custom hardscaping can transform your property's appearance and add lasting value.</p>
+                            <span class="blog-card__link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="blog-walkways.html" class="blog-card">
+                        <div class="blog-card__image">
+                            <img src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1000x1000/filters:strip_exif()/filters:no_upscale()/media/8dd4a83d-07e4-4594-8bbe-1c1c4848e295.jpeg" alt="Outdoor walkway design" loading="lazy">
+                            <span class="blog-card__category">Hardscaping</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span><i class="fa-regular fa-calendar" aria-hidden="true"></i> Feb 28, 2025</span>
+                            </div>
+                            <h3 class="blog-card__title">The Art of Hardscaping: Creating Stunning Outdoor Walkways</h3>
+                            <p class="blog-card__excerpt">Design principles and material choices for beautiful, functional outdoor paths and walkways.</p>
+                            <span class="blog-card__link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <a href="index.html" class="footer__logo">
+                        <img src="https://hayslawnandpropertyservices.com/wp-content/uploads/2024/12/hays-logo-stack-e1767994423293.webp" alt="Hays Lawn and Property Services" style="height: clamp(100px, 20vw, 150px); width: auto;">
+                    </a>
+                    <p class="footer__text">Family-owned lawn care proudly serving Clinton and surrounding East Tennessee communities since 2019. Licensed, insured, and committed to excellence.</p>
+                    <div class="footer__social">
+                        <a href="https://www.facebook.com/103517237676848" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="https://maps.google.com/maps?cid=5526754346328966445" class="footer__social-link" aria-label="Google Business"><i class="fa-brands fa-google" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer__title">Contact Us</h4>
+                    <div class="footer__contact-item">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        <a href="tel:+18654135899">(865) 413-5899</a>
+                    </div>
+                    <div class="footer__contact-item">
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        <span>Clinton, TN<br>Serving Anderson County & Knoxville Area</span>
+                    </div>
+                    <div class="footer__contact-item">
+                        <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                        <span>Mon – Sat: 8am – 6pm<br>Sun: Closed</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer__title">Services</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html#services" class="footer__link">Lawn Mowing</a></li>
+                        <li><a href="index.html#services" class="footer__link">Mulch Installation</a></li>
+                        <li><a href="index.html#services" class="footer__link">Shrub Trimming</a></li>
+                        <li><a href="index.html#services" class="footer__link">Property Management</a></li>
+                        <li><a href="index.html#services" class="footer__link">Fall Clean Up</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__title">Quick Links</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html" class="footer__link">Home</a></li>
+                        <li><a href="index.html#services" class="footer__link">Services</a></li>
+                        <li><a href="index.html#about" class="footer__link">About Us</a></li>
+                        <li><a href="index.html#gallery" class="footer__link">Gallery</a></li>
+                        <li><a href="index.html#reviews" class="footer__link">Reviews</a></li>
+                        <li><a href="blog.html" class="footer__link">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 Hays Lawn and Property Services. All rights reserved.</p>
+                <div class="footer__bottom-links">
+                    <span>Licensed & Insured</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Scroll to top"><i class="fa-solid fa-chevron-up" aria-hidden="true"></i></button>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        navToggle.addEventListener('click', () => { const isExpanded = navToggle.getAttribute('aria-expanded') === 'true'; navToggle.setAttribute('aria-expanded', !isExpanded); navMenu.classList.toggle('is-open'); });
+        document.addEventListener('click', (e) => { if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) { navToggle.setAttribute('aria-expanded', 'false'); navMenu.classList.remove('is-open'); } });
+        
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('is-visible', window.scrollY > 500); });
+        scrollTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    </script>
+</body>
+</html>
