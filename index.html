@@ -23,7 +23,7 @@
     <meta property="og:url" content="https://hayslawnandpropertyservices.com/">
     <meta property="og:title" content="Hays Lawn and Property Services | Professional Lawn Care in Clinton, TN">
     <meta property="og:description" content="East Tennessee's trusted lawn care professionals. Mowing, mulching, landscaping & more. Family owned, 5+ years experience. Free estimates!">
-    <meta property="og:image" content="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1200x630/filters:strip_exif()/filters:no_upscale()/media/9e53a0d0-ca20-4bfd-8602-582ed676e457.jpeg">
+    <meta property="og:image" content="https://heather-cooper.com/wp-content/uploads/2026/01/hays-logo-stack-e1767994423293.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
@@ -34,12 +34,16 @@
     <meta name="twitter:url" content="https://hayslawnandpropertyservices.com/">
     <meta name="twitter:title" content="Hays Lawn and Property Services | Clinton, TN Lawn Care">
     <meta name="twitter:description" content="Professional lawn mowing, mulching, landscaping & property maintenance. Family owned, serving East Tennessee. Free estimates!">
-    <meta name="twitter:image" content="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1200x630/filters:strip_exif()/filters:no_upscale()/media/9e53a0d0-ca20-4bfd-8602-582ed676e457.jpeg">
+    <meta name="twitter:image" content="https://heather-cooper.com/wp-content/uploads/2026/01/hays-logo-stack-e1767994423293.webp">
     
     <!-- Additional SEO Meta -->
     <meta name="theme-color" content="#16a34a">
     <meta name="msapplication-TileColor" content="#16a34a">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="https://heather-cooper.com/wp-content/uploads/2026/01/hays-logo-stack-e1767994423293.webp">
+    <link rel="apple-touch-icon" href="https://heather-cooper.com/wp-content/uploads/2026/01/hays-logo-stack-e1767994423293.webp">
     
     <!-- Preload Critical Resources -->
     <link rel="preload" href="https://heather-cooper.com/wp-content/uploads/2026/01/12215822-hd_1920_1080_60fps.mp4" as="video" type="video/mp4">
@@ -541,6 +545,22 @@
         .gallery__btn-less { display: none; }
         .gallery__grid.is-expanded ~ .gallery__toggle .gallery__btn-more { display: none; }
         .gallery__grid.is-expanded ~ .gallery__toggle .gallery__btn-less { display: inline-flex; align-items: center; gap: 0.5rem; }
+
+        /* Lightbox */
+        .lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(0, 0, 0, 0.95); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+        .lightbox.is-open { opacity: 1; visibility: visible; }
+        .lightbox__content { position: relative; max-width: 90vw; max-height: 90vh; display: flex; align-items: center; justify-content: center; }
+        .lightbox__img { max-width: 100%; max-height: 85vh; object-fit: contain; border-radius: var(--radius-lg); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); transform: scale(0.9); transition: transform 0.3s ease; }
+        .lightbox.is-open .lightbox__img { transform: scale(1); }
+        .lightbox__caption { position: absolute; bottom: -50px; left: 0; right: 0; text-align: center; color: var(--color-white); font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; }
+        .lightbox__close { position: absolute; top: var(--space-lg); right: var(--space-lg); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.2); color: var(--color-white); font-size: 1.5rem; border-radius: var(--radius-full); cursor: pointer; transition: all 0.3s ease; z-index: 10; }
+        .lightbox__close:hover { background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.4); transform: rotate(90deg); }
+        .lightbox__nav { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.2); color: var(--color-white); font-size: 1.25rem; border-radius: var(--radius-full); cursor: pointer; transition: all 0.3s ease; z-index: 10; }
+        .lightbox__nav:hover { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); border-color: transparent; }
+        .lightbox__nav--prev { left: var(--space-lg); }
+        .lightbox__nav--next { right: var(--space-lg); }
+        .lightbox__counter { position: absolute; top: var(--space-lg); left: 50%; transform: translateX(-50%); color: var(--color-white); font-family: var(--font-display); font-size: var(--text-sm); background: rgba(0, 0, 0, 0.5); padding: 0.5rem 1rem; border-radius: var(--radius-full); }
+        .gallery__item { cursor: pointer; }
 
         .cta { position: relative; color: var(--color-white); padding: var(--space-3xl) 0; overflow: hidden; }
         .cta::before { content: ''; position: absolute; inset: 0; background: url('https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:no_upscale()/media/410bfd06-abdc-49c1-856e-868f46f93f88.jpeg') center/cover no-repeat; z-index: -2; }
@@ -1072,6 +1092,18 @@
 
     <button id="scrollTop" class="scroll-top" aria-label="Scroll to top"><i class="fa-solid fa-chevron-up" aria-hidden="true"></i></button>
 
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image gallery lightbox">
+        <button class="lightbox__close" aria-label="Close lightbox"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous image"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+        <button class="lightbox__nav lightbox__nav--next" aria-label="Next image"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <div class="lightbox__counter"><span id="lightboxCurrent">1</span> / <span id="lightboxTotal">1</span></div>
+        <div class="lightbox__content">
+            <img class="lightbox__img" id="lightboxImg" src="" alt="">
+            <p class="lightbox__caption" id="lightboxCaption"></p>
+        </div>
+    </div>
+
     <script>
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('navMenu');
@@ -1108,6 +1140,80 @@
                 if (!isOpen) item.classList.add('is-open');
                 button.setAttribute('aria-expanded', !isOpen);
             });
+        });
+
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxCurrent = document.getElementById('lightboxCurrent');
+        const lightboxTotal = document.getElementById('lightboxTotal');
+        const lightboxClose = lightbox.querySelector('.lightbox__close');
+        const lightboxPrev = lightbox.querySelector('.lightbox__nav--prev');
+        const lightboxNext = lightbox.querySelector('.lightbox__nav--next');
+        
+        let galleryImages = [];
+        let currentIndex = 0;
+
+        // Collect all gallery images
+        function updateGalleryImages() {
+            galleryImages = Array.from(document.querySelectorAll('.gallery__item:not(.gallery__item--hidden) img, .gallery__grid.is-expanded .gallery__item img'));
+            lightboxTotal.textContent = galleryImages.length;
+        }
+
+        // Open lightbox
+        function openLightbox(index) {
+            updateGalleryImages();
+            currentIndex = index;
+            const img = galleryImages[currentIndex];
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCaption.textContent = img.closest('figure').querySelector('figcaption')?.textContent || '';
+            lightboxCurrent.textContent = currentIndex + 1;
+            lightbox.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+
+        // Navigate
+        function navigate(direction) {
+            updateGalleryImages();
+            currentIndex = (currentIndex + direction + galleryImages.length) % galleryImages.length;
+            const img = galleryImages[currentIndex];
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCaption.textContent = img.closest('figure').querySelector('figcaption')?.textContent || '';
+            lightboxCurrent.textContent = currentIndex + 1;
+        }
+
+        // Event listeners
+        document.querySelectorAll('.gallery__item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                updateGalleryImages();
+                const img = item.querySelector('img');
+                const imgIndex = galleryImages.indexOf(img);
+                openLightbox(imgIndex >= 0 ? imgIndex : 0);
+            });
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', () => navigate(-1));
+        lightboxNext.addEventListener('click', () => navigate(1));
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('is-open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
         });
     </script>
 </body>
